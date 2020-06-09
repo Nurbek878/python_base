@@ -10,5 +10,18 @@
 #   Студенту надо попросить ХХХ.ХХ рублей
 
 educational_grant, expenses = 10000, 12000
-
 # TODO здесь ваш код
+requet_cash = int()
+count = 1
+sum_expenses = expenses
+
+while count < 11:
+    requet_cash = sum_expenses - educational_grant
+    expenses = expenses + expenses * 0.03
+    sum_expenses += expenses
+    educational_grant = educational_grant + 10000
+    count += 1
+
+print('Студенту надо попросить ','%.2f' %requet_cash, ' рублей')
+
+

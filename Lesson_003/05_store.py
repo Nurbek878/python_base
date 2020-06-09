@@ -47,8 +47,25 @@ store = {
 #     вывод на консоль количества и стоимости товара на складе
 
 # TODO здесь ваш код
+# цикл по словарям
+
+list_goods = []
+for name, code in goods.items():
 
 
+    sum_total = 0
+    sum_quantity = 0
+    list_goods = store[code]
+
+    for count in range(len(list_goods)):
+        quantity = list_goods[count]['quantity']
+        sum_quantity = sum_quantity + quantity
+        price = list_goods[count]['price']
+        total = quantity * price
+        sum_total = sum_total + total
+
+
+    print(name,'- ', sum_quantity, 'шт, стоимость' ,sum_total, 'руб')
 
 
 

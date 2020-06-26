@@ -7,6 +7,20 @@
 
 # TODO здесь ваш код
 
+from district.central_street.house1 import room1 as centr_h1_r1
+from district.central_street.house1 import room2 as centr_h1_r2
+from district.central_street.house2 import room1 as centr_h2_r1
+from district.central_street.house2 import room2 as centr_h2_r2
+from district.soviet_street.house1 import room1 as soviet_h1_r1
+from district.soviet_street.house1 import room2 as soviet_h1_r2
+from district.soviet_street.house2 import room1 as soviet_h2_r1
+from district.soviet_street.house2 import room2 as soviet_h2_r2
+
+result =', '
+print('На районе живут', result.join(centr_h1_r1.folks), result.join(centr_h1_r2.folks), '\n',
+                         result.join(centr_h2_r1.folks), result.join(centr_h2_r2.folks), '\n',
+                         result.join(soviet_h1_r1.folks), result.join(soviet_h1_r2.folks),'\n',
+                         result.join(soviet_h2_r1.folks), result.join(soviet_h2_r2.folks))
 
 
 

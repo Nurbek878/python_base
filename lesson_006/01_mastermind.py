@@ -44,3 +44,44 @@
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
 
 # TODO здесь ваш код...
+from mastermind_engine import pick_number, check_number, check_input
+from termcolor import cprint, colored
+
+print_pick = pick_number()
+
+for i in range(4):
+    print_pick[i] = str(print_pick[i])
+
+# print('Загаданное число', ''.join(print_pick))
+counter = 1
+
+cprint('Загадано 4-значное число, все цифры которого различны . Попробуйте отгадать его', color='green')
+
+while True:
+
+    input_number = str(input(colored('Введите свое число\n', color='blue')))
+
+    control = check_input(num=input_number)
+
+    if control != 1:
+
+        check_result = check_number(num=input_number, hidden_num=print_pick)
+        print('быки -', check_result['bulls'], ', коровы -', check_result['cows'])
+
+        if check_result['bulls'] == 4:
+            cprint('Вы победили! Число угадано полностью.', color='magenta', attrs=['bold'])
+            print('Вы угадали за', counter, 'ходов \n'
+                                            '')
+            answer = input(colored('Хотите еще партию? 1 - Да, 2 - Нет\n', color='red'))
+            if int(answer) == 2:
+                cprint('Игра окончена. Спасибо за игру!', color='cyan')
+                break
+            else:
+                print_pick = pick_number()
+                for i in range(4):
+                    print_pick[i] = str(print_pick[i])
+
+                # print('Загаданное число', ''.join(print_pick))
+                counter = 0
+
+    counter += 1
